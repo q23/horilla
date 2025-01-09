@@ -9,6 +9,9 @@ services:
     restart: unless-stopped
     environment:
       DATABASE_URL: "postgres://postgres:postgres@db:5432/horilla"
+      DEBUG: "True"
+      ALLOWED_HOSTS: "*"
+      CSRF_TRUSTED_ORIGINS: "https://horilla.dev-ff.q23.de"
     command: ./entrypoint.sh
     volumes:
       - ./horilla:/app/horilla
