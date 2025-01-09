@@ -3,6 +3,12 @@
 # Aktiviere virtuelles Environment
 source /opt/venv/bin/activate
 
+# Prüfe ob die benötigten Umgebungsvariablen gesetzt sind
+if [ -z "$USER" ] || [ -z "$USER_EMAIL" ] || [ -z "$USER_PW" ]; then
+    echo "ERROR: Required environment variables USER, USER_EMAIL, or USER_PW are not set"
+    exit 1
+fi
+
 echo "Waiting for database to be ready..."
 
 # Warte auf PostgreSQL
@@ -25,7 +31,7 @@ python3 manage.py migrate
 python3 manage.py collectstatic --noinput --no-input
 
 # Erstelle Superuser nur wenn er noch nicht existiert
-echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.filter(username='admin').exists() or User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | python3 manage.py shell
+echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.filter(username='$USER').exists() or User.objects.create_superuser('$USER', '$USER_EMAIL', '$USER_PW')" | python3 manage.py shell
 
 echo "Starting Gunicorn..."
 exec gunicorn \
