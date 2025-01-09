@@ -48,7 +48,10 @@ python3 manage.py loaddata leave/fixtures/leave_type.json
 python3 manage.py loaddata recruitment/fixtures/candidate_source.json
 python3 manage.py loaddata recruitment/fixtures/stage.json
 
-python3 manage.py collectstatic --noinput --no-input
+# Sammle statische Dateien
+echo "Collecting static files..."
+python3 manage.py collectstatic --noinput --clear
+python3 manage.py collectstatic --noinput
 
 # Erstelle den Admin-Benutzer
 python3 manage.py shell << END

@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
 
 # Erstelle nicht-root Benutzer
 RUN useradd -m -s /bin/bash app && \
-    mkdir -p /app /opt/venv && \
+    mkdir -p /app /opt/venv /app/static /app/media /app/staticfiles && \
     chown -R app:app /app /opt/venv
 
 # Wechsle zum nicht-root Benutzer
