@@ -30,11 +30,14 @@ python3 manage.py makemigrations
 python3 manage.py migrate
 python3 manage.py collectstatic --noinput --no-input
 
-# Bereinige die Datenbank und erstelle den Superuser
+# Bereinige die Datenbank und erstelle den Superuser mit Employee-Profil
 python3 manage.py shell << END
 from django.contrib.auth.models import User
 from auditlog.models import LogEntry
 from django.db import connection
+from base.models import Company, Department, JobPosition
+from employee.models import Employee
+import datetime
 
 # Lösche alle Audit-Logs
 LogEntry.objects.all().delete()
@@ -48,7 +51,42 @@ with connection.cursor() as cursor:
 
 # Erstelle den neuen Superuser
 if not User.objects.filter(username='$USER').exists():
-    User.objects.create_superuser('$USER', '$USER_EMAIL', '$USER_PW')
+    user = User.objects.create_superuser('$USER', '$USER_EMAIL', '$USER_PW')
+    
+    # Erstelle Grunddaten
+    company = Company.objects.create(
+        company_name='Q23',
+        address='Company Address',
+        country='Germany',
+        email='$USER_EMAIL',
+        phone='1234567890',
+        website='https://q23.de'
+    )
+    
+    dept = Department.objects.create(
+        department='IT',
+        company=company
+    )
+    
+    position = JobPosition.objects.create(
+        job_position='Admin',
+        department=dept
+    )
+    
+    # Erstelle Employee-Profil
+    if not Employee.objects.filter(user=user).exists():
+        Employee.objects.create(
+            employee_first_name='Q23',
+            employee_last_name='Admin',
+            email='$USER_EMAIL',
+            phone='1234567890',
+            user=user,
+            department=dept,
+            job_position=position,
+            employee_profile_image='',
+            date_joining=datetime.date.today(),
+            company=company
+        )
 END
 
 echo "Starting Gunicorn..."
