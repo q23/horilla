@@ -3,7 +3,10 @@ FROM python:3.10-slim-bullseye
 ENV PYTHONUNBUFFERED 1
 
 # System-Abhängigkeiten installieren
-RUN apt-get update && apt-get install -y libcairo2-dev gcc
+RUN apt-get update && apt-get install -y \
+    libcairo2-dev \
+    gcc \
+    postgresql-client
 
 WORKDIR /app/
 

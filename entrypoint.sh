@@ -2,9 +2,10 @@
 
 # Warten bis die Datenbank wirklich bereit ist
 echo "Waiting for database to be ready..."
-while ! python3 manage.py check --database default > /dev/null 2>&1; do
-    echo "Database is unavailable - waiting..."
-    sleep 2
+export PGPASSWORD=$POSTGRES_PASSWORD
+until psql -h "db" -U "postgres" -d "horilla" -c '\q'; do
+    echo "Database is unavailable - sleeping"
+    sleep 1
 done
 
 echo "Database is ready!"
