@@ -1,9 +1,31 @@
 #!/bin/bash
 
+# Überprüfe und setze Standardwerte für fehlende Umgebungsvariablen
+if [ -z "$DATABASE_URL" ]; then
+    echo "WARNING: DATABASE_URL is not set, using default: postgresql://postgres:postgres@db:5432/horilla"
+    export DATABASE_URL="postgresql://postgres:postgres@db:5432/horilla"
+fi
+
+if [ -z "$DEBUG" ]; then
+    echo "WARNING: DEBUG is not set, using default: True"
+    export DEBUG="True"
+fi
+
+if [ -z "$ALLOWED_HOSTS" ]; then
+    echo "WARNING: ALLOWED_HOSTS is not set, using default: *"
+    export ALLOWED_HOSTS="*"
+fi
+
+if [ -z "$CSRF_TRUSTED_ORIGINS" ]; then
+    echo "WARNING: CSRF_TRUSTED_ORIGINS is not set, using default: https://horilla.dev-ff.q23.de"
+    export CSRF_TRUSTED_ORIGINS="https://horilla.dev-ff.q23.de"
+fi
+
 # Debug-Ausgabe der Umgebungsvariablen (ohne Passwörter)
 echo "DEBUG is set to: $DEBUG"
 echo "DATABASE_URL is set to: ${DATABASE_URL//:*@/:***@}"
 echo "ALLOWED_HOSTS is set to: $ALLOWED_HOSTS"
+echo "CSRF_TRUSTED_ORIGINS is set to: $CSRF_TRUSTED_ORIGINS"
 
 echo "Waiting for database to be ready..."
 # Versuche die Datenbankverbindung mit Django zu testen
