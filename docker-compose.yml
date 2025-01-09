@@ -8,6 +8,10 @@ services:
       - 8000:8000
     restart: unless-stopped
     command: ./entrypoint.sh
+    environment:
+      - USER=q23
+      - USER_EMAIL=technik@q23.de
+      - USER_PW=Y@i9aGz3Rh4QAC5K
     volumes:
       - ./horilla:/app/horilla
     depends_on:
