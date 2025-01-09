@@ -53,41 +53,22 @@ echo "Collecting static files..."
 python3 manage.py collectstatic --noinput --clear
 python3 manage.py collectstatic --noinput
 
-# Erstelle den Admin-Benutzer
+# Lösche bestehende Benutzer
+echo "Setting up users..."
 python3 manage.py shell << END
 from django.contrib.auth.models import User
-from employee.models import Employee
-from base.models import Department, JobPosition, Company
-import datetime
-
-# Lösche bestehende Benutzer
 User.objects.all().delete()
-
-# Erstelle neuen Superuser
-user = User.objects.create_superuser(
-    username='$USER',
-    email='$USER_EMAIL',
-    password='$USER_PW'
-)
-
-# Hole das erste Unternehmen und die erste Abteilung
-company = Company.objects.first()
-department = Department.objects.first()
-position = JobPosition.objects.first()
-
-# Erstelle Employee-Profil
-Employee.objects.create(
-    employee_first_name='Aimo',
-    employee_last_name='Hindriks',
-    email='a.hindriks@q23.de',
-    phone='1234567890',
-    user=user,
-    department=department,
-    job_position=position,
-    date_joining=datetime.date.today(),
-    company=company
-)
 END
+
+# Erstelle Horilla-Benutzer
+echo "Creating Horilla user..."
+python3 manage.py createhorillauser \
+    --username "$USER" \
+    --password "$USER_PW" \
+    --email "$USER_EMAIL" \
+    --first_name "Aimo" \
+    --last_name "Hindriks" \
+    --phone "1234567890"
 
 echo "Starting Gunicorn..."
 exec gunicorn \
