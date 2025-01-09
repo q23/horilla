@@ -76,9 +76,9 @@ if not User.objects.filter(username='$USER').exists():
     # Erstelle Employee-Profil
     if not Employee.objects.filter(user=user).exists():
         Employee.objects.create(
-            employee_first_name='Q23',
-            employee_last_name='Admin',
-            email='$USER_EMAIL',
+            employee_first_name='Aimo',
+            employee_last_name='Hindriks',
+            email='a.hindriks@q23.de',
             phone='1234567890',
             user=user,
             department=dept,
