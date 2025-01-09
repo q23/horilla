@@ -39,9 +39,9 @@ env.read_env(os.path.join(BASE_DIR, ".env"), overwrite=True)
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env("DEBUG")
+DEBUG = True
 
-ALLOWED_HOSTS = env("ALLOWED_HOSTS")
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -212,23 +212,18 @@ MESSAGE_TAGS = {
 }
 
 # CSRF settings
-CSRF_TRUSTED_ORIGINS = ['https://horilla.dev-ff.q23.de']
-CSRF_COOKIE_SECURE = True
-CSRF_USE_SESSIONS = True
+CSRF_TRUSTED_ORIGINS = ['https://horilla.dev-ff.q23.de', 'http://localhost:8000']
+CSRF_COOKIE_SECURE = False  # Set to True in production
+CSRF_USE_SESSIONS = False
 CSRF_COOKIE_HTTPONLY = True
-CSRF_COOKIE_SAMESITE = 'Lax'
 
 # Session settings
-SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = False  # Set to True in production
 SESSION_COOKIE_HTTPONLY = True
-SESSION_COOKIE_SAMESITE = 'Lax'
 
-# Security settings
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
-SECURE_HSTS_SECONDS = 31536000
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
+# Security settings for development
+SECURE_SSL_REDIRECT = False  # Set to True in production
+SECURE_PROXY_SSL_HEADER = None
 
 LOGIN_URL = "/login"
 

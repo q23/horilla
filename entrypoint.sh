@@ -28,65 +28,62 @@ echo "Database is ready - running migrations"
 # Führe Migrationen aus
 python3 manage.py makemigrations
 python3 manage.py migrate
+
+# Lade Testdaten
+echo "Loading test data..."
+python3 manage.py loaddata base/fixtures/country.json
+python3 manage.py loaddata base/fixtures/company.json
+python3 manage.py loaddata base/fixtures/department.json
+python3 manage.py loaddata base/fixtures/job_position.json
+python3 manage.py loaddata base/fixtures/job_role.json
+python3 manage.py loaddata base/fixtures/work_type.json
+python3 manage.py loaddata base/fixtures/rotating_shift.json
+python3 manage.py loaddata base/fixtures/rotating_shift_settings.json
+python3 manage.py loaddata base/fixtures/shift.json
+python3 manage.py loaddata base/fixtures/shift_settings.json
+python3 manage.py loaddata employee/fixtures/employee.json
+python3 manage.py loaddata employee/fixtures/employee_workinfo.json
+python3 manage.py loaddata horilla_documents/fixtures/document_type.json
+python3 manage.py loaddata leave/fixtures/leave_type.json
+python3 manage.py loaddata recruitment/fixtures/candidate_source.json
+python3 manage.py loaddata recruitment/fixtures/stage.json
+
 python3 manage.py collectstatic --noinput --no-input
 
-# Bereinige die Datenbank und erstelle den Superuser mit Employee-Profil
+# Erstelle den Admin-Benutzer
 python3 manage.py shell << END
 from django.contrib.auth.models import User
-from auditlog.models import LogEntry
-from django.db import connection
-from base.models import Company, Department, JobPosition
 from employee.models import Employee
+from base.models import Department, JobPosition, Company
 import datetime
 
-# Lösche alle Audit-Logs
-LogEntry.objects.all().delete()
-
-# Lösche alle bestehenden Benutzer
+# Lösche bestehende Benutzer
 User.objects.all().delete()
 
-# Setze die Sequenz für die User-ID zurück
-with connection.cursor() as cursor:
-    cursor.execute("ALTER SEQUENCE auth_user_id_seq RESTART WITH 1")
+# Erstelle neuen Superuser
+user = User.objects.create_superuser(
+    username='$USER',
+    email='$USER_EMAIL',
+    password='$USER_PW'
+)
 
-# Erstelle den neuen Superuser
-if not User.objects.filter(username='$USER').exists():
-    user = User.objects.create_superuser('$USER', '$USER_EMAIL', '$USER_PW')
-    
-    # Erstelle Grunddaten
-    company = Company.objects.create(
-        company_name='Q23',
-        address='Company Address',
-        country='Germany',
-        email='$USER_EMAIL',
-        phone='1234567890',
-        website='https://q23.de'
-    )
-    
-    dept = Department.objects.create(
-        department='IT',
-        company=company
-    )
-    
-    position = JobPosition.objects.create(
-        job_position='Admin',
-        department=dept
-    )
-    
-    # Erstelle Employee-Profil
-    if not Employee.objects.filter(user=user).exists():
-        Employee.objects.create(
-            employee_first_name='Aimo',
-            employee_last_name='Hindriks',
-            email='a.hindriks@q23.de',
-            phone='1234567890',
-            user=user,
-            department=dept,
-            job_position=position,
-            employee_profile_image='',
-            date_joining=datetime.date.today(),
-            company=company
-        )
+# Hole das erste Unternehmen und die erste Abteilung
+company = Company.objects.first()
+department = Department.objects.first()
+position = JobPosition.objects.first()
+
+# Erstelle Employee-Profil
+Employee.objects.create(
+    employee_first_name='Aimo',
+    employee_last_name='Hindriks',
+    email='a.hindriks@q23.de',
+    phone='1234567890',
+    user=user,
+    department=department,
+    job_position=position,
+    date_joining=datetime.date.today(),
+    company=company
+)
 END
 
 echo "Starting Gunicorn..."
