@@ -30,8 +30,26 @@ python3 manage.py makemigrations
 python3 manage.py migrate
 python3 manage.py collectstatic --noinput --no-input
 
-# Erstelle Superuser nur wenn er noch nicht existiert
-echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.filter(username='$USER').exists() or User.objects.create_superuser('$USER', '$USER_EMAIL', '$USER_PW')" | python3 manage.py shell
+# Bereinige die Datenbank und erstelle den Superuser
+python3 manage.py shell << END
+from django.contrib.auth.models import User
+from auditlog.models import LogEntry
+from django.db import connection
+
+# Lösche alle Audit-Logs
+LogEntry.objects.all().delete()
+
+# Lösche alle bestehenden Benutzer
+User.objects.all().delete()
+
+# Setze die Sequenz für die User-ID zurück
+with connection.cursor() as cursor:
+    cursor.execute("ALTER SEQUENCE auth_user_id_seq RESTART WITH 1")
+
+# Erstelle den neuen Superuser
+if not User.objects.filter(username='$USER').exists():
+    User.objects.create_superuser('$USER', '$USER_EMAIL', '$USER_PW')
+END
 
 echo "Starting Gunicorn..."
 exec gunicorn \
