@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Aktiviere virtuelles Environment
+source /opt/venv/bin/activate
+
 # Überprüfe und setze Standardwerte für fehlende Umgebungsvariablen
 if [ -z "$DATABASE_URL" ]; then
     echo "WARNING: DATABASE_URL is not set, using default: postgresql://postgres:postgres@db:5432/horilla"
@@ -30,7 +33,8 @@ echo "CSRF_TRUSTED_ORIGINS is set to: $CSRF_TRUSTED_ORIGINS"
 echo "Waiting for database to be ready..."
 
 # Warte auf PostgreSQL
-until PGPASSWORD=postgres psql -h "db" -U "postgres" -d "horilla" -c '\q' 2>/dev/null; do
+export PGPASSWORD=postgres
+until psql -h "db" -U "postgres" -d "horilla" -c '\q' 2>/dev/null; do
   echo "PostgreSQL is unavailable - sleeping"
   sleep 1
 done
@@ -76,8 +80,16 @@ fi
 echo "Running migrations..."
 python3 manage.py makemigrations
 python3 manage.py migrate
-python3 manage.py collectstatic --noinput
+python3 manage.py collectstatic --noinput --no-input
 python3 manage.py createhorillauser --first_name admin --last_name admin --username admin --password admin --email admin@example.com --phone 1234567890
 
 echo "Starting Gunicorn..."
-exec gunicorn --bind 0.0.0.0:8000 horilla.wsgi:application --log-level debug --timeout 120
+exec gunicorn \
+    --bind 0.0.0.0:8000 \
+    --workers 2 \
+    --threads 4 \
+    --timeout 120 \
+    --log-level debug \
+    --access-logfile - \
+    --error-logfile - \
+    horilla.wsgi:application
