@@ -5,16 +5,30 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 8000:8000
+      - '8000:8000'
     restart: unless-stopped
     environment:
-      DATABASE_URL: "postgres://postgres:postgres@db:5432/horilla"
+      DATABASE_URL: postgres://postgres:postgres@db:5432/horilla
     command: ./entrypoint.sh
     volumes:
       - ./horilla:/app/horilla
     depends_on:
       db:
         condition: service_healthy
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.horilla-fe-gauh8y-47-web.rule=Host(`horilla.dev-ff.q23.de`)
+      - traefik.http.routers.horilla-fe-gauh8y-47-web.entrypoints=web
+      - traefik.http.services.horilla-fe-gauh8y-47-web.loadbalancer.server.port=8000
+      - traefik.http.routers.horilla-fe-gauh8y-47-web.service=horilla-fe-gauh8y-47-web
+      - traefik.http.routers.horilla-fe-gauh8y-47-web.middlewares=redirect-to-https@file
+      - traefik.http.routers.horilla-fe-gauh8y-47-websecure.rule=Host(`horilla.dev-ff.q23.de`)
+      - traefik.http.routers.horilla-fe-gauh8y-47-websecure.entrypoints=websecure
+      - traefik.http.services.horilla-fe-gauh8y-47-websecure.loadbalancer.server.port=8000
+      - traefik.http.routers.horilla-fe-gauh8y-47-websecure.service=horilla-fe-gauh8y-47-websecure
+      - traefik.http.routers.horilla-fe-gauh8y-47-websecure.tls.certresolver=letsencrypt
+    networks:
+      - dokploy-network
 
   db:
     image: postgres:16-bullseye
@@ -22,10 +36,10 @@ services:
       POSTGRES_DB: horilla
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_INITDB_ARGS: "--auth-host=scram-sha-256"
+      POSTGRES_INITDB_ARGS: '--auth-host=scram-sha-256'
       PGDATA: /var/lib/postgresql/data/pgdata
     ports:
-      - 5432:5432
+      - '5432:5432'
     restart: unless-stopped
     volumes:
       - horilla-data:/var/lib/postgresql/data
@@ -34,6 +48,19 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    security_opt:
+      - no-new-privileges:true
+    command: 
+      - "postgres"
+      - "-c"
+      - "max_connections=200"
+      - "-c"
+      - "shared_buffers=256MB"
 
 volumes:
   horilla-data:
+    driver: local
+
+networks:
+  dokploy-network:
+    external: true
