@@ -12,6 +12,9 @@ services:
       - USER=q23
       - USER_EMAIL=technik@q23.de
       - USER_PW=Y@i9aGz3Rh4QAC5K
+      - SECURE_SSL_REDIRECT=True
+      - CSRF_TRUSTED_ORIGINS=https://horilla.dev-ff.q23.de
+      - ALLOWED_HOSTS=*
     volumes:
       - ./horilla:/app/horilla
     depends_on:
