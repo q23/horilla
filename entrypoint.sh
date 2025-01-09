@@ -3,85 +3,29 @@
 # Aktiviere virtuelles Environment
 source /opt/venv/bin/activate
 
-# Überprüfe und setze Standardwerte für fehlende Umgebungsvariablen
-if [ -z "$DATABASE_URL" ]; then
-    echo "WARNING: DATABASE_URL is not set, using default: postgresql://postgres:postgres@db:5432/horilla"
-    export DATABASE_URL="postgresql://postgres:postgres@db:5432/horilla"
-fi
-
-if [ -z "$DEBUG" ]; then
-    echo "WARNING: DEBUG is not set, using default: True"
-    export DEBUG="True"
-fi
-
-if [ -z "$ALLOWED_HOSTS" ]; then
-    echo "WARNING: ALLOWED_HOSTS is not set, using default: *"
-    export ALLOWED_HOSTS="*"
-fi
-
-if [ -z "$CSRF_TRUSTED_ORIGINS" ]; then
-    echo "WARNING: CSRF_TRUSTED_ORIGINS is not set, using default: https://horilla.dev-ff.q23.de"
-    export CSRF_TRUSTED_ORIGINS="https://horilla.dev-ff.q23.de"
-fi
-
-# Debug-Ausgabe der Umgebungsvariablen (ohne Passwörter)
-echo "DEBUG is set to: $DEBUG"
-echo "DATABASE_URL is set to: ${DATABASE_URL//:*@/:***@}"
-echo "ALLOWED_HOSTS is set to: $ALLOWED_HOSTS"
-echo "CSRF_TRUSTED_ORIGINS is set to: $CSRF_TRUSTED_ORIGINS"
-
 echo "Waiting for database to be ready..."
 
 # Warte auf PostgreSQL
 export PGPASSWORD=postgres
-until psql -h "db" -U "postgres" -d "horilla" -c '\q' 2>/dev/null; do
+until psql -h "db" -U "postgres" -d "postgres" -c '\l' 2>/dev/null; do
   echo "PostgreSQL is unavailable - sleeping"
   sleep 1
 done
 
-echo "PostgreSQL is up - executing command"
+echo "PostgreSQL is up - checking database"
 
-# Versuche die Datenbankverbindung mit Django zu testen
-python3 << END
-import os
-import sys
-import django
-from django.db import connections
-from django.db.utils import OperationalError
-import psycopg2
+# Prüfe, ob die Datenbank existiert, wenn nicht, erstelle sie
+psql -h "db" -U "postgres" -d "postgres" -c "SELECT 1 FROM pg_database WHERE datname = 'horilla'" | grep -q 1 || psql -h "db" -U "postgres" -d "postgres" -c "CREATE DATABASE horilla"
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'horilla.settings')
-django.setup()
+echo "Database is ready - running migrations"
 
-try:
-    # Versuche direkte PostgreSQL-Verbindung
-    conn = psycopg2.connect(
-        dbname="horilla",
-        user="postgres",
-        password="postgres",
-        host="db"
-    )
-    print("Direct PostgreSQL connection successful!")
-    conn.close()
-
-    # Versuche Django-Verbindung
-    connections['default'].ensure_connection()
-    print("Django database connection successful!")
-except (psycopg2.Error, OperationalError) as e:
-    print(f"Database connection failed! Error: {e}")
-    sys.exit(1)
-END
-
-if [ $? -ne 0 ]; then
-    echo "Failed to connect to the database. Exiting..."
-    exit 1
-fi
-
-echo "Running migrations..."
+# Führe Migrationen aus
 python3 manage.py makemigrations
 python3 manage.py migrate
 python3 manage.py collectstatic --noinput --no-input
-python3 manage.py createhorillauser --first_name admin --last_name admin --username admin --password admin --email admin@example.com --phone 1234567890
+
+# Erstelle Superuser nur wenn er noch nicht existiert
+echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.filter(username='admin').exists() or User.objects.create_superuser('admin', 'admin@example.com', 'admin')" | python3 manage.py shell
 
 echo "Starting Gunicorn..."
 exec gunicorn \
