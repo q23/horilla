@@ -88,19 +88,17 @@ SCHEDULER_CONFIG = {
 }
 
 MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.common.CommonMiddleware",
-    "corsheaders.middleware.CorsMiddleware",
-
-    # "django.middleware.csrf.CsrfViewMiddleware",
-    "simple_history.middleware.HistoryRequestMiddleware",
+    'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'simple_history.middleware.HistoryRequestMiddleware',
     "django.middleware.locale.LocaleMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = "horilla.urls"
@@ -213,17 +211,50 @@ MESSAGE_TAGS = {
 
 # CSRF settings
 CSRF_TRUSTED_ORIGINS = ['https://horilla.dev-ff.q23.de', 'http://localhost:8000']
-CSRF_COOKIE_SECURE = False  # Set to True in production
+CSRF_COOKIE_DOMAIN = '.q23.de'
+CSRF_COOKIE_NAME = 'csrftoken'
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = False  # Must be False to allow JavaScript access
+CSRF_HEADER_NAME = 'HTTP_X_CSRFTOKEN'
 CSRF_USE_SESSIONS = False
-CSRF_COOKIE_HTTPONLY = True
+CSRF_COOKIE_SAMESITE = None  # None allows cross-site requests
 
 # Session settings
-SESSION_COOKIE_SECURE = False  # Set to True in production
+SESSION_COOKIE_DOMAIN = '.q23.de'
+SESSION_COOKIE_NAME = 'sessionid'
+SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SAMESITE = None  # None allows cross-site requests
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
-# Security settings for development
-SECURE_SSL_REDIRECT = False  # Set to True in production
-SECURE_PROXY_SSL_HEADER = None
+# Security settings
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# CORS settings
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
 
 LOGIN_URL = "/login"
 
