@@ -3850,7 +3850,9 @@ msgstr "Vermögensgegenstand Bericht hinzufügen"
 
 #: .\asset\templates\category\asset_empty.html:98
 msgid "There is no Asset category and no Assets has been created."
-msgstr "Es gibt keine Vermögensgegenstand-Kategorie und es wurden keine Vermögensgegenstand erstellt."
+msgstr ""
+"Es gibt keine Vermögensgegenstand-Kategorie und es wurden keine "
+"Vermögensgegenstand erstellt."
 
 #: .\asset\templates\category\asset_filter_export.html:8
 msgid "Export Assets"
@@ -4540,7 +4542,8 @@ msgid ""
 "<span title='Do not Auto Validate Attendance if an Employee Works More Than "
 "this Amount of Duration'>{}</span>"
 msgstr ""
-"Anwesenheit nicht automatisch validieren, wenn ein Mitarbeiter mehr arbeitet als Dieser Betrag an Dauer"
+"Anwesenheit nicht automatisch validieren, wenn ein Mitarbeiter mehr arbeitet "
+"als Dieser Betrag an Dauer"
 
 #: .\attendance\forms.py:522
 msgid "Maximum Allowed working hours"
@@ -4597,7 +4600,9 @@ msgstr "Das Bis-Datum sollte nach dem Von-Datum liegen"
 #: .\attendance\forms.py:1030
 msgid ""
 "There is no valid date to create attendance request between this date range"
-msgstr "In diesem Datumsbereich gibt es kein gültiges Datum zum Erstellen einer Anwesenheitsanfrage"
+msgstr ""
+"In diesem Datumsbereich gibt es kein gültiges Datum zum Erstellen einer "
+"Anwesenheitsanfrage"
 
 #: .\attendance\models.py:67 .\base\forms.py:81 .\base\forms.py:87
 #: .\base\forms.py:89 .\base\models.py:28 .\biometric\models.py:22
@@ -5132,7 +5137,9 @@ msgstr "Geben Sie die Abwesenheitsart an, um die Abwesenheit abzuziehen."
 
 #: .\attendance\models.py:900
 msgid "If a leave type is chosen for a penalty, minus leaves are required."
-msgstr "Wenn für die Strafe eine Abwesenheitsart gewählt wird, ist eine negative Abwesenheitszeit erforderlich."
+msgstr ""
+"Wenn für die Strafe eine Abwesenheitsart gewählt wird, ist eine negative "
+"Abwesenheitszeit erforderlich."
 
 #: .\attendance\models.py:908
 msgid "Either minus leaves or a penalty amount is required"
@@ -6087,7 +6094,9 @@ msgstr "Keine bestätigte Anwesenheit vorzuweisen."
 #, python-format
 msgid ""
 "The attendances for this employee in %(month_name)s has not been validated."
-msgstr "Die Anwesenheiten dieses Mitarbeiters in %(month_name)s wurden nicht validiert."
+msgstr ""
+"Die Anwesenheiten dieses Mitarbeiters in %(month_name)s wurden nicht "
+"validiert."
 
 #: .\attendance\templates\attendance\attendance_account\attendance_account_export_filter.html:103
 #: .\attendance\templates\attendance\attendance_account\attendance_account_filter.html:80
@@ -6560,7 +6569,8 @@ msgstr "Der Urlaubstyp ist optional, wenn „Minusurlaub“ 0 ist"
 #: .\attendance\templates\attendance\penalty\form.html:97
 #: .\leave\templates\leave\leave_request\penalty\form.html:67
 msgid "Penalty amount will affect payslip on the date"
-msgstr "Die Höhe der Strafe wirkt sich zum Stichtag auf die Gehaltsabrechnung aus"
+msgstr ""
+"Die Höhe der Strafe wirkt sich zum Stichtag auf die Gehaltsabrechnung aus"
 
 #: .\attendance\templates\attendance\penalty\form.html:107
 #: .\leave\templates\leave\leave_request\penalty\form.html:73
@@ -12620,13 +12630,8 @@ msgstr "Möchten Sie diesen Abzug löschen?"
 msgid "Unschedule"
 msgstr "Geplant"
 
-#: .\biometric\templates\biometric\card_biometric_devices.html:158
-#: .\biometric\templates\biometric\list_biometric_devices.html:80
-#: .\biometric\templates\biometric\scheduler_device_form.html:25
-#, fuzzy
-#| msgid "Scheduled"
 msgid "Schedule"
-msgstr "Geplant"
+msgstr "Zeitplan"
 
 #: .\biometric\templates\biometric\card_biometric_devices.html:271
 msgid "No biometric devices found."
@@ -13300,9 +13305,8 @@ msgstr "Abgelehnt Anfragen"
 msgid "Bulk Rejection Reason"
 msgstr ""
 
-#: .\employee\templates\documents\document_request_create_form.html:44
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: .\employee\templates\documents\document_request_create_form.html:52
 msgid "Max size (in MB)"
@@ -13793,9 +13797,8 @@ msgstr "Notiz"
 msgid "Mail Log"
 msgstr ""
 
-#: .\employee\templates\employee\view\individual.html:473
 msgid "Bonus"
-msgstr ""
+msgstr "Bonus"
 
 #: .\employee\templates\employee_filters.html:77
 #, fuzzy
@@ -14578,14 +14581,8 @@ msgstr "Möchten Sie diese Anfrage genehmigen?"
 msgid "Reason"
 msgstr ""
 
-#: .\employee\templates\tabs\htmx\view_file.html:53
-#: .\employee\templates\tabs\payroll-tab.html:80
-#: .\payroll\templates\payroll\payslip\group_by.html:157
-#: .\payroll\templates\payroll\payslip\group_payslips.html:113
-#: .\payroll\templates\payroll\payslip\individual_payslip.html:17
-#: .\payroll\templates\payroll\payslip\payslip_table.html:167
 msgid "Download"
-msgstr ""
+msgstr "Herunterladen"
 
 #: .\employee\templates\tabs\htmx\view_file.html:79
 msgid "File format not supported for preview."
@@ -14723,18 +14720,8 @@ msgstr "Keiner"
 msgid "Contract details"
 msgstr "Vertragsstatus"
 
-#: .\employee\templates\tabs\personal-tab.html:382
-#: .\helpdesk\templates\helpdesk\faq\faq_nav.html:66
-#: .\helpdesk\templates\helpdesk\ticket\forms\add_tag.html:13
-#: .\helpdesk\templates\helpdesk\ticket\ticket_filter.html:109
-#: .\helpdesk\templates\helpdesk\ticket\ticket_group.html:50
-#: .\helpdesk\templates\helpdesk\ticket\ticket_group.html:380
-#: .\helpdesk\templates\helpdesk\ticket\ticket_group.html:708
-#: .\helpdesk\templates\helpdesk\ticket\ticket_list.html:46
-#: .\helpdesk\templates\helpdesk\ticket\ticket_list.html:343
-#: .\helpdesk\templates\helpdesk\ticket\ticket_list.html:614
 msgid "Tags"
-msgstr ""
+msgstr "Schlagworte"
 
 #: .\employee\templates\tabs\profile-asset-tab.html:4
 #, fuzzy
@@ -14760,12 +14747,8 @@ msgstr "Neue Anwesenheitsanfrage"
 msgid "Scheduled Interviews"
 msgstr "Geplant bis"
 
-#: .\employee\templates\tabs\scheduled_interview.html:14
-#: .\recruitment\templates\candidate\individual.html:615
-#, fuzzy
-#| msgid "In Time"
 msgid "Time"
-msgstr "Gekommen"
+msgstr "Zeit"
 
 #: .\employee\templates\tabs\scheduled_interview.html:15
 #: .\recruitment\templates\candidate\individual.html:616
@@ -20812,11 +20795,8 @@ msgstr "Mehrf-achauswahl"
 msgid "Likert"
 msgstr "Likert"
 
-#: .\pms\models.py:539 .\templates\settings.html:53
-#, fuzzy
-#| msgid "Generate"
 msgid "General"
-msgstr "generieren"
+msgstr "Allgemein"
 
 #: .\pms\models.py:604
 #, python-brace-format
@@ -21494,16 +21474,8 @@ msgstr "Aktualisieren Schlüsselergebnisse "
 msgid "Start Value"
 msgstr "Start Wert"
 
-#: .\pms\templates\okr\key_result\kr_card.html:39
-#: .\pms\templates\okr\key_result\kr_filter.html:27
-#: .\pms\templates\okr\key_result\kr_list.html:65
-#: .\pms\templates\okr\okr_list.html:120 .\pms\templates\okr\okr_list.html:122
-#: .\pms\templates\okr\okr_list.html:423 .\pms\templates\okr\okr_list.html:425
-#: .\pms\templates\okr\okr_nav.html:107
-#, fuzzy
-#| msgid "Deduction"
 msgid "Duration"
-msgstr "Abzug"
+msgstr "Dauer"
 
 #: .\pms\templates\okr\key_result\kr_card.html:40
 #: .\pms\templates\okr\key_result\kr_list.html:98
@@ -23815,11 +23787,8 @@ msgstr "Meine Firma"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: .\templates\sidebar.html:222
-#, fuzzy
-#| msgid "Email Configuration"
 msgid "Configuration"
-msgstr "Email Konfiguration"
+msgstr "Konfiguration"
 
 #: .\templates\sidebar.html:237
 #, fuzzy
@@ -23844,6 +23813,168 @@ msgstr ""
 #: .\templates\work_info_complete.html:10
 msgid "Progress"
 msgstr ""
+
+msgid "Default Employee View"
+msgstr "Standard-Mitarbeiteransicht"
+
+msgid "Default Employee Detailed View"
+msgstr "Standard-Mitarbeiter-Detailansicht"
+
+msgid "You dont have access to the feature"
+msgstr "Sie haben keinen Zugriff auf diese Funktion"
+
+msgid "Default Accessibility"
+msgstr "Standard-Zugänglichkeit"
+
+msgid "Limit default view access to horilla feature"
+msgstr "Standardzugriff auf Horilla-Funktionen einschränken"
+
+msgid "You won't be able to revert this!"
+msgstr "Dies kann nicht rückgängig gemacht werden!"
+
+msgid "Clear it"
+msgstr "Löschen"
+
+msgid "Clear Filter"
+msgstr "Filter zurücksetzen"
+
+msgid "Restrict All"
+msgstr "Alle einschränken"
+
+msgid "feature"
+msgstr "Funktion"
+
+msgid "Accessibility filter saved"
+msgstr "Zugriffsfilter gespeichert"
+
+msgid "All filter cleared"
+msgstr "Alle Filter zurückgesetzt"
+
+msgid "Asset Batch"
+msgstr "Anlagenbatch"
+
+msgid "Asset Batches"
+msgstr "Anlagenbatches"
+
+msgid "Contact Info"
+msgstr "Kontaktinformationen"
+
+msgid "Inactive"
+msgstr "Inaktiv"
+
+msgid "Pending"
+msgstr "Ausstehend"
+
+msgid "Start"
+msgstr "Start"
+
+msgid "End"
+msgstr "Ende"
+
+msgid "Calendar"
+msgstr "Kalender"
+
+msgid "Success"
+msgstr "Erfolg"
+
+msgid "Error"
+msgstr "Fehler"
+
+msgid "Warning"
+msgstr "Warnung"
+
+msgid "Are you sure"
+msgstr "Sind Sie sicher"
+
+msgid "Please"
+msgstr "Bitte"
+
+msgid "Required"
+msgstr "Erforderlich"
+
+msgid "Invalid"
+msgstr "Ungültig"
+
+msgid "Not found"
+msgstr "Nicht gefunden"
+
+msgid "Position"
+msgstr "Position"
+
+msgid "Role"
+msgstr "Rolle"
+
+msgid "Designation"
+msgstr "Bezeichnung"
+
+msgid "Supervisor"
+msgstr "Vorgesetzter"
+
+msgid "Project"
+msgstr "Projekt"
+
+msgid "File"
+msgstr "Datei"
+
+msgid "Image"
+msgstr "Bild"
+
+msgid "Photo"
+msgstr "Foto"
+
+msgid "Size"
+msgstr "Größe"
+
+msgid "Content"
+msgstr "Inhalt"
+
+msgid "Account"
+msgstr "Konto"
+
+msgid "Register"
+msgstr "Registrieren"
+
+msgid "Sign in"
+msgstr "Anmelden"
+
+msgid "Sign out"
+msgstr "Abmelden"
+
+msgid "Permission"
+msgstr "Berechtigung"
+
+msgid "Access"
+msgstr "Zugriff"
+
+msgid "Admin"
+msgstr "Administrator"
+
+msgid "Staff"
+msgstr "Mitarbeiter"
+
+msgid "Preferences"
+msgstr "Präferenzen"
+
+msgid "Default"
+msgstr "Standard"
+
+msgid "System"
+msgstr "System"
+
+msgid "Language"
+msgstr "Sprache"
+
+msgid "Theme"
+msgstr "Design"
+
+msgid "Notification"
+msgstr "Benachrichtigung"
+
+msgid "Alert"
+msgstr "Warnung"
+
+msgid "Message"
+msgstr "Nachricht"
 
 #~ msgid "Batch Description is not added"
 #~ msgstr "Chargen Beschreibung nicht hinzugefügt"

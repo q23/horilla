@@ -289,13 +289,22 @@ LOCALE_PATHS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "Asia/Kolkata"
+# Timezone settings
+TIME_ZONE = 'Europe/Berlin'
+USE_TZ = True
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+# Email settings
+EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND', 'django.core.mail.backends.smtp.EmailBackend')
+EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.q23.de')
+EMAIL_PORT = int(os.environ.get('EMAIL_PORT', '587'))
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'True').lower() == 'true'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'horilla@q23.de')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD', '')
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', EMAIL_HOST_USER)
 
 # Production settings
 if not DEBUG:
