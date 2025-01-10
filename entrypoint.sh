@@ -21,7 +21,8 @@ done
 echo "PostgreSQL is up - checking database"
 
 # Prüfe, ob die Datenbank existiert, wenn nicht, erstelle sie
-psql -h "db" -U "postgres" -d "postgres" -c "SELECT 1 FROM pg_database WHERE datname = 'horilla'" | grep -q 1 || psql -h "db" -U "postgres" -d "postgres" -c "CREATE DATABASE horilla"
+psql -h "db" -U "postgres" -d "postgres" -c "DROP DATABASE IF EXISTS horilla;"
+psql -h "db" -U "postgres" -d "postgres" -c "CREATE DATABASE horilla;"
 
 echo "Database is ready - running migrations"
 
