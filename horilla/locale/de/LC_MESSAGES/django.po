@@ -8428,12 +8428,8 @@ msgstr "Aufklappen"
 msgid "Collapse"
 msgstr "Einklappen"
 
-#: .\base\templates\base\auth\group_lines.html:18
-#: .\employee\templates\tabs\group_permissions.html:41
-#, fuzzy
-#| msgid "Total OKR"
 msgid "Total"
-msgstr "Gesamt Zielsetzung Schlüssel  Ergebnis"
+msgstr "Gesamt"
 
 #: .\base\templates\base\auth\group_lines.html:18
 #: .\employee\templates\tabs\group_permissions.html:42
@@ -13626,12 +13622,8 @@ msgstr "Zulage nicht gefunden"
 msgid "Penalty Account"
 msgstr "Konto aktualisieren"
 
-#: .\employee\templates\employee\profile\profile_view.html:301
-#: .\employee\templates\employee\profile\profile_view.html:310
-#: .\employee\templates\employee\view\individual.html:408
-#: .\employee\templates\employee\view\individual.html:416
 msgid "Performance"
-msgstr ""
+msgstr "Leistung"
 
 #: .\employee\templates\employee\profile\profile_view.html:313
 #: .\employee\templates\employee\profile\profile_view.html:321
@@ -15639,9 +15631,8 @@ msgstr ""
 msgid "On Hold"
 msgstr ""
 
-#: .\helpdesk\templates\helpdesk\ticket\ticket_view.html:86
 msgid "In Progress"
-msgstr ""
+msgstr "In Bearbeitung"
 
 #: .\helpdesk\templates\helpdesk\ticket\ticket_view.html:97
 #, fuzzy
@@ -23810,9 +23801,8 @@ msgstr "Ungültige Zeit"
 msgid "Please upload a valid XLSX file."
 msgstr ""
 
-#: .\templates\work_info_complete.html:10
 msgid "Progress"
-msgstr ""
+msgstr "Fortschritt"
 
 msgid "Default Employee View"
 msgstr "Standard-Mitarbeiteransicht"
@@ -23975,6 +23965,165 @@ msgstr "Warnung"
 
 msgid "Message"
 msgstr "Nachricht"
+
+msgid "Overview"
+msgstr "Übersicht"
+
+msgid "Summary"
+msgstr "Zusammenfassung"
+
+msgid "Statistics"
+msgstr "Statistiken"
+
+msgid "Chart"
+msgstr "Diagramm"
+
+msgid "Graph"
+msgstr "Graf"
+
+msgid "Report"
+msgstr "Bericht"
+
+msgid "Analytics"
+msgstr "Analysen"
+
+msgid "Menu"
+msgstr "Menü"
+
+msgid "Navigation"
+msgstr "Navigation"
+
+msgid "Home"
+msgstr "Startseite"
+
+msgid "Welcome"
+msgstr "Willkommen"
+
+msgid "Quick"
+msgstr "Schnell"
+
+msgid "Recent"
+msgstr "Kürzlich"
+
+msgid "Latest"
+msgstr "Neueste"
+
+msgid "Quick Actions"
+msgstr "Schnellaktionen"
+
+msgid "Recent Activities"
+msgstr "Letzte Aktivitäten"
+
+msgid "Latest Updates"
+msgstr "Neueste Aktualisierungen"
+
+msgid "Overview Report"
+msgstr "Übersichtsbericht"
+
+msgid "Quick Links"
+msgstr "Schnellzugriff"
+
+msgid "Quick Search"
+msgstr "Schnellsuche"
+
+msgid "Quick Filter"
+msgstr "Schnellfilter"
+
+msgid "Dashboard Settings"
+msgstr "Dashboard-Einstellungen"
+
+msgid "Customize Dashboard"
+msgstr "Dashboard anpassen"
+
+msgid "Reset Dashboard"
+msgstr "Dashboard zurücksetzen"
+
+msgid "Refresh"
+msgstr "Aktualisieren"
+
+msgid "View Details"
+msgstr "Details anzeigen"
+
+msgid "View All"
+msgstr "Alle anzeigen"
+
+msgid "Show More"
+msgstr "Mehr anzeigen"
+
+msgid "Hide"
+msgstr "Ausblenden"
+
+msgid "Expand"
+msgstr "Erweitern"
+
+msgid "Loading..."
+msgstr "Wird geladen..."
+
+msgid "No data available"
+msgstr "Keine Daten verfügbar"
+
+msgid "Last Updated"
+msgstr "Zuletzt aktualisiert"
+
+msgid "Compare to Previous Period"
+msgstr "Mit vorheriger Periode vergleichen"
+
+msgid "Trends"
+msgstr "Trends"
+
+msgid "Status Overview"
+msgstr "Statusübersicht"
+
+msgid "Key Metrics"
+msgstr "Wichtigste Kennzahlen"
+
+msgid "Summary Report"
+msgstr "Zusammenfassender Bericht"
+
+msgid "Count"
+msgstr "Anzahl"
+
+msgid "Sum"
+msgstr "Summe"
+
+msgid "Ratio"
+msgstr "Verhältnis"
+
+msgid "Growth"
+msgstr "Wachstum"
+
+msgid "Increase"
+msgstr "Zunahme"
+
+msgid "Decrease"
+msgstr "Abnahme"
+
+msgid "Comparison"
+msgstr "Vergleich"
+
+msgid "Target"
+msgstr "Ziel"
+
+msgid "Actual"
+msgstr "Ist"
+
+msgid "Forecast"
+msgstr "Prognose"
+
+msgid "Score"
+msgstr "Punktzahl"
+
+msgid "Metric"
+msgstr "Kennzahl"
+
+msgid "Indicator"
+msgstr "Indikator"
+
+msgid "Behind Schedule"
+msgstr "Im Verzug"
+
+msgid "Ahead of Schedule"
+msgstr "Vor dem Zeitplan"
 
 #~ msgid "Batch Description is not added"
 #~ msgstr "Chargen Beschreibung nicht hinzugefügt"

@@ -175,7 +175,7 @@ if EMAIL_BACKEND and EMAIL_BACKEND != default:
 class ConfiguredEmailBackend(BACKEND_CLASS):
 
     def send_messages(self, email_messages):
-        response = super(BACKEND_CLASS, self).send_messages(email_messages)
+        response = super().send_messages(email_messages)
         for message in email_messages:
             email_log = EmailLog(
                 subject=message.subject,
