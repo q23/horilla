@@ -6703,20 +6703,8 @@ msgstr "Arbeitsaufzeichnungen"
 msgid "Date:"
 msgstr "Datum:"
 
-#: .\attendance\templates\requests\attendance\attendance_comment.html:35
-#: .\base\templates\shift_request\htmx\shift_comment.html:35
-#: .\base\templates\work_type_request\htmx\work_type_comment.html:35
-#: .\leave\templates\leave\compensatory_leave\compensatory_leave_comment.html:35
-#: .\leave\templates\leave\leave_allocation_request\leave_allocation_comment.html:35
-#: .\leave\templates\leave\leave_request\leave_comment.html:35
-#: .\payroll\templates\payroll\reimbursement\reimbursement_comment.html:35
-#: .\payroll\templates\payroll\reimbursement\request_cards.html:140
-#: .\payroll\templates\payroll\reimbursement\request_cards.html:426
-#: .\payroll\templates\payroll\reimbursement\request_cards.html:708
-#, fuzzy
-#| msgid "Comment"
 msgid "Comments"
-msgstr "Kommentar"
+msgstr "Kommentare"
 
 #: .\attendance\templates\requests\attendance\attendance_comment.html:115
 #: .\base\templates\shift_request\htmx\shift_comment.html:115
@@ -8081,15 +8069,11 @@ msgstr "Feiertagname"
 msgid "Email Authentication Password"
 msgstr "Authentifizierung"
 
-#: .\base\models.py:1102
-#, fuzzy
-#| msgid "Use Tls"
 msgid "Use TLS"
-msgstr "Verwenden Tls"
+msgstr "TLS verwenden"
 
-#: .\base\models.py:1104
 msgid "Use SSL"
-msgstr ""
+msgstr "SSL verwenden"
 
 #: .\base\models.py:1106
 msgid "Fail Silently"
@@ -13166,9 +13150,8 @@ msgstr "Persönliche Mitarbeiterdaten erfolgreich erstellt."
 msgid "Disciplinary action deleted."
 msgstr "Benachrichtigung gelöscht."
 
-#: .\employee\templates\disciplinary_actions\disciplinary_nav.html:7
 msgid "Disciplinary Actions"
-msgstr ""
+msgstr "Disziplinarmaßnahmen"
 
 #: .\employee\templates\disciplinary_actions\disciplinary_nav.html:48
 #, fuzzy
@@ -13373,9 +13356,8 @@ msgstr "Foto hochladen"
 msgid "Badge Id"
 msgstr "Abzeichen-ID"
 
-#: .\employee\templates\employee\create_form\personal_info.html:72
 msgid "Show"
-msgstr ""
+msgstr "Anzeigen"
 
 #: .\employee\templates\employee\create_form\personal_info.html:106
 #: .\employee\templates\employee\profile\personal_info.html:62
@@ -13625,15 +13607,8 @@ msgstr "Konto aktualisieren"
 msgid "Performance"
 msgstr "Leistung"
 
-#: .\employee\templates\employee\profile\profile_view.html:313
-#: .\employee\templates\employee\profile\profile_view.html:321
-#: .\employee\templates\employee\view\individual.html:447
-#: .\employee\templates\employee\view\individual.html:455
-#: .\helpdesk\templates\helpdesk\ticket\ticket_detail.html:391
-#, fuzzy
-#| msgid "Document"
 msgid "Documents"
-msgstr "dokumentieren"
+msgstr "Dokumente"
 
 #: .\employee\templates\employee\profile\profile_view.html:324
 #: .\employee\templates\employee\profile\profile_view.html:332
@@ -13827,20 +13802,8 @@ msgstr "Mitarbeiter ausschließen"
 msgid "for:"
 msgstr ""
 
-#: .\employee\templates\employee_nav.html:304
-#: .\helpdesk\templates\helpdesk\ticket\ticket_filter.html:37
-#: .\offboarding\templates\offboarding\resignation\nav.html:18
-#: .\onboarding\templates\onboarding\onboarding_view_nav.html:18
-#: .\payroll\templates\payroll\allowance\view_allowance.html:64
-#: .\payroll\templates\payroll\deduction\view_deduction.html:65
-#: .\payroll\templates\payroll\loan\nav.html:23
-#: .\payroll\templates\payroll\reimbursement\nav.html:22
-#: .\pms\templates\okr\key_result\kr_nav.html:51
-#: .\recruitment\templates\candidate\candidate_nav.html:91
-#: .\recruitment\templates\pipeline\nav.html:136
-#: .\recruitment\templates\skill_zone_cand\skill_zone_cand_nav.html:89
 msgid "List"
-msgstr ""
+msgstr "Liste"
 
 #: .\employee\templates\employee_nav.html:315
 #: .\helpdesk\templates\helpdesk\ticket\ticket_filter.html:42
@@ -15507,16 +15470,8 @@ msgstr ""
 msgid "Created:"
 msgstr "Erstellt"
 
-#: .\helpdesk\templates\helpdesk\ticket\ticket_detail.html:285
-#: .\helpdesk\templates\helpdesk\ticket\ticket_filter.html:101
-#: .\helpdesk\templates\helpdesk\ticket\ticket_group.html:49
-#: .\helpdesk\templates\helpdesk\ticket\ticket_group.html:379
-#: .\helpdesk\templates\helpdesk\ticket\ticket_group.html:707
-#: .\helpdesk\templates\helpdesk\ticket\ticket_list.html:45
-#: .\helpdesk\templates\helpdesk\ticket\ticket_list.html:342
-#: .\helpdesk\templates\helpdesk\ticket\ticket_list.html:613
 msgid "Priority"
-msgstr ""
+msgstr "Priorität"
 
 #: .\helpdesk\templates\helpdesk\ticket\ticket_detail.html:299
 #, fuzzy
@@ -16701,11 +16656,8 @@ msgstr "Benutzer Urlaub"
 msgid "Export Leaves"
 msgstr "Sonderurlaub "
 
-#: .\leave\templates\leave\leave_assign\assigned_leave.html:41
-#, fuzzy
-#| msgid "Leave days"
 msgid "Leave Days"
-msgstr "Abwesenheitstage"
+msgstr "Urlaubstage"
 
 #: .\leave\templates\leave\leave_assign\assigned_leaves_export_form.html:45
 #: .\leave\templates\leave\leave_assign\assigned_leaves_filter.html:10
@@ -17876,13 +17828,8 @@ msgstr ""
 msgid "Notice Period Ends"
 msgstr ""
 
-#: .\offboarding\templates\offboarding\pipeline\filter.html:70
-#: .\offboarding\templates\offboarding\pipeline\filter.html:97
-#: .\offboarding\templates\offboarding\pipeline\nav.html:4
-#, fuzzy
-#| msgid "Onboarding"
 msgid "Offboarding"
-msgstr "Onboarding"
+msgstr "Austritt"
 
 #: .\offboarding\templates\offboarding\pipeline\filter.html:76
 #: .\onboarding\templates\onboarding\filters.html:12
@@ -18066,13 +18013,8 @@ msgstr ""
 msgid "Are you sure want to delete this stage?"
 msgstr "Sind Sie sicher, dass Sie diese Phase löschen möchten?"
 
-#: .\offboarding\templates\offboarding\stage\offboarding_body.html:66
-#: .\payroll\models\models.py:232
-#: .\payroll\templates\payroll\settings\settings.html:4
-#, fuzzy
-#| msgid "Create Period"
 msgid "Notice Period"
-msgstr "Erstellen Zeitraum"
+msgstr "Kündigungsfrist"
 
 #: .\offboarding\templates\offboarding\stage\offboarding_body.html:72
 #: .\onboarding\templates\onboarding\onboarding_table.html:122
@@ -18499,11 +18441,8 @@ msgstr "Portalbühne"
 msgid "At present, There are no Candidates onboarding."
 msgstr ""
 
-#: .\onboarding\templates\onboarding\candidates_view.html:149
-#, fuzzy
-#| msgid "Option"
 msgid "Optional"
-msgstr "Optionen"
+msgstr "Optional"
 
 #: .\onboarding\templates\onboarding\candidates_view.html:171
 #, fuzzy
@@ -18668,25 +18607,8 @@ msgstr "Möchten Sie diese Phase löschen?"
 msgid "Add task"
 msgstr "Aufgabe hinzufügen"
 
-#: .\onboarding\templates\onboarding\kanban\kanban.html:210
-#: .\onboarding\templates\onboarding\kanban\kanban.html:222
-#: .\onboarding\templates\onboarding\kanban\kanban.html:235
-#: .\onboarding\templates\onboarding\kanban\kanban.html:249
-#: .\onboarding\templates\onboarding\onboarding_view.html:148
-#: .\onboarding\templates\onboarding\onboarding_view.html:161
-#: .\onboarding\templates\onboarding\onboarding_view.html:175
-#: .\onboarding\templates\onboarding\onboarding_view.html:190
-#: .\onboarding\templates\onboarding\onboarding_view.html:205
-#: .\payroll\templates\payroll\reimbursement\attachments.html:15
-#: .\pms\templates\feedback\feedback_detailed_view.html:319
-#: .\recruitment\templates\pipeline\pipeline_tabs.html:49
-#: .\recruitment\templates\recruitment\recruitment_component.html:288
-#: .\recruitment\templates\recruitment\recruitment_component.html:310
-#: .\templates\index.html:123
-#, fuzzy
-#| msgid "Closed"
 msgid "Close"
-msgstr "Geschlossen"
+msgstr "Schließen"
 
 #: .\onboarding\templates\onboarding\kanban\kanban.html:234
 #: .\onboarding\templates\onboarding\onboarding_view.html:174
@@ -24124,6 +24046,450 @@ msgstr "Im Verzug"
 
 msgid "Ahead of Schedule"
 msgstr "Vor dem Zeitplan"
+
+msgid "Test Send"
+msgstr "Test senden"
+
+msgid "Send Test"
+msgstr "Test senden"
+
+msgid "Test Email"
+msgstr "Test-E-Mail"
+
+msgid "Send Email"
+msgstr "E-Mail senden"
+
+msgid "Email Test"
+msgstr "E-Mail-Test"
+
+msgid "Configure Email"
+msgstr "E-Mail konfigurieren"
+
+msgid "Email Settings"
+msgstr "E-Mail-Einstellungen"
+
+msgid "Test Connection"
+msgstr "Verbindung testen"
+
+msgid "Send Test Email"
+msgstr "Test-E-Mail senden"
+
+msgid "Test Email Configuration"
+msgstr "E-Mail-Konfiguration testen"
+
+msgid "Email Server"
+msgstr "E-Mail-Server"
+
+msgid "SMTP Server"
+msgstr "SMTP-Server"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "From Email"
+msgstr "Absender-E-Mail"
+
+msgid "To Email"
+msgstr "Empfänger-E-Mail"
+
+msgid "SSL/TLS"
+msgstr "SSL/TLS"
+
+msgid "Employee Dashboard"
+msgstr "Mitarbeiter-Dashboard"
+
+msgid "HR Dashboard"
+msgstr "HR-Dashboard"
+
+msgid "Admin Dashboard"
+msgstr "Admin-Dashboard"
+
+msgid "Manager Dashboard"
+msgstr "Manager-Dashboard"
+
+msgid "Employee Overview"
+msgstr "Mitarbeiterübersicht"
+
+msgid "Attendance Overview"
+msgstr "Anwesenheitsübersicht"
+
+msgid "Leave Overview"
+msgstr "Urlaubsübersicht"
+
+msgid "Recent Leave Requests"
+msgstr "Aktuelle Urlaubsanträge"
+
+msgid "Recent Attendance"
+msgstr "Aktuelle Anwesenheit"
+
+msgid "Employee Statistics"
+msgstr "Mitarbeiterstatistiken"
+
+msgid "Attendance Statistics"
+msgstr "Anwesenheitsstatistiken"
+
+msgid "Leave Statistics"
+msgstr "Urlaubsstatistiken"
+
+msgid "Employee Distribution"
+msgstr "Mitarbeiterverteilung"
+
+msgid "Attendance Rate"
+msgstr "Anwesenheitsquote"
+
+msgid "Leave Balance"
+msgstr "Urlaubssaldo"
+
+msgid "Quick Access"
+msgstr "Schnellzugriff"
+
+msgid "Recent Updates"
+msgstr "Aktuelle Updates"
+
+msgid "Important Notices"
+msgstr "Wichtige Hinweise"
+
+msgid "Upcoming Events"
+msgstr "Kommende Ereignisse"
+
+msgid "Today's Summary"
+msgstr "Zusammenfassung heute"
+
+msgid "Weekly Summary"
+msgstr "Wöchentliche Zusammenfassung"
+
+msgid "Monthly Summary"
+msgstr "Monatliche Zusammenfassung"
+
+msgid "Employee Count"
+msgstr "Mitarbeiteranzahl"
+
+msgid "Present Today"
+msgstr "Heute anwesend"
+
+msgid "Absent Today"
+msgstr "Heute abwesend"
+
+msgid "On Leave Today"
+msgstr "Heute im Urlaub"
+
+msgid "Late Today"
+msgstr "Heute zu spät"
+
+msgid "Active Employees"
+msgstr "Aktive Mitarbeiter"
+
+msgid "Inactive Employees"
+msgstr "Inaktive Mitarbeiter"
+
+msgid "Full-time"
+msgstr "Vollzeit"
+
+msgid "Part-time"
+msgstr "Teilzeit"
+
+msgid "Temporary"
+msgstr "Befristet"
+
+msgid "Age Distribution"
+msgstr "Altersverteilung"
+
+msgid "Gender Distribution"
+msgstr "Geschlechterverteilung"
+
+msgid "Salary Range"
+msgstr "Gehaltsbereich"
+
+msgid "Experience Level"
+msgstr "Erfahrungsstufe"
+
+msgid "Skills Matrix"
+msgstr "Kompetenzmatrix"
+
+msgid "Education Level"
+msgstr "Bildungsniveau"
+
+msgid "Department Metrics"
+msgstr "Abteilungskennzahlen"
+
+msgid "Team Performance"
+msgstr "Teamleistung"
+
+msgid "Project Status"
+msgstr "Projektstatus"
+
+msgid "Task Completion"
+msgstr "Aufgabenabschluss"
+
+msgid "Deadline Status"
+msgstr "Terminsstatus"
+
+msgid "Work Hours"
+msgstr "Arbeitsstunden"
+
+msgid "Sick Days"
+msgstr "Krankheitstage"
+
+msgid "Choose"
+msgstr "Wählen"
+
+msgid "Sort"
+msgstr "Sortieren"
+
+msgid "Continue"
+msgstr "Fortfahren"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Help"
+msgstr "Hilfe"
+
+msgid "More"
+msgstr "Mehr"
+
+msgid "Less"
+msgstr "Weniger"
+
+msgid "Enable"
+msgstr "Aktivieren"
+
+msgid "Disable"
+msgstr "Deaktivieren"
+
+msgid "Loading"
+msgstr "Wird geladen"
+
+msgid "Processing"
+msgstr "Wird verarbeitet"
+
+msgid "Please wait"
+msgstr "Bitte warten"
+
+msgid "Are you sure?"
+msgstr "Sind Sie sicher?"
+
+msgid "Changes saved"
+msgstr "Änderungen gespeichert"
+
+msgid "Changes not saved"
+msgstr "Änderungen nicht gespeichert"
+
+msgid "Invalid input"
+msgstr "Ungültige Eingabe"
+
+msgid "Field required"
+msgstr "Pflichtfeld"
+
+msgid "Select all"
+msgstr "Alle auswählen"
+
+msgid "Select none"
+msgstr "Keine auswählen"
+
+msgid "Toggle selection"
+msgstr "Auswahl umkehren"
+
+msgid "Information"
+msgstr "Informationen"
+
+msgid "Section"
+msgstr "Abschnitt"
+
+msgid "Level"
+msgstr "Ebene"
+
+msgid "Table"
+msgstr "Tabelle"
+
+msgid "Grid"
+msgstr "Raster"
+
+msgid "Row"
+msgstr "Zeile"
+
+msgid "Column"
+msgstr "Spalte"
+
+msgid "Header"
+msgstr "Kopfzeile"
+
+msgid "Footer"
+msgstr "Fußzeile"
+
+msgid "Items"
+msgstr "Einträge"
+
+msgid "Entries"
+msgstr "Einträge"
+
+msgid "Results"
+msgstr "Ergebnisse"
+
+msgid "Data"
+msgstr "Daten"
+
+msgid "Record"
+msgstr "Datensatz"
+
+msgid "Detail"
+msgstr "Detail"
+
+msgid "Empty"
+msgstr "Leer"
+
+msgid "No items found"
+msgstr "Keine Einträge gefunden"
+
+msgid "No results found"
+msgstr "Keine Ergebnisse gefunden"
+
+msgid "Show entries"
+msgstr "Einträge anzeigen"
+
+msgid "Showing"
+msgstr "Zeige"
+
+msgid "entries"
+msgstr "Einträge"
+
+msgid "Previous page"
+msgstr "Vorherige Seite"
+
+msgid "Next page"
+msgstr "Nächste Seite"
+
+msgid "Go to page"
+msgstr "Gehe zu Seite"
+
+msgid "Items per page"
+msgstr "Einträge pro Seite"
+
+msgid "Loading data"
+msgstr "Lade Daten"
+
+msgid "Sorting"
+msgstr "Sortiere"
+
+msgid "Filtering"
+msgstr "Filtere"
+
+msgid "Export data"
+msgstr "Daten exportieren"
+
+msgid "Print"
+msgstr "Drucken"
+
+msgid "Column visibility"
+msgstr "Spaltensichtbarkeit"
+
+msgid "Show/Hide columns"
+msgstr "Spalten ein-/ausblenden"
+
+msgid "Reset view"
+msgstr "Ansicht zurücksetzen"
+
+msgid "Refresh data"
+msgstr "Daten aktualisieren"
+
+msgid "Table settings"
+msgstr "Tabelleneinstellungen"
+
+msgid "Save view"
+msgstr "Ansicht speichern"
+
+msgid "Load view"
+msgstr "Ansicht laden"
+
+msgid "Default view"
+msgstr "Standardansicht"
+
+msgid "Hire"
+msgstr "Einstellen"
+
+msgid "Terminate"
+msgstr "Kündigen"
+
+msgid "Promote"
+msgstr "Befördern"
+
+msgid "Transfer"
+msgstr "Versetzen"
+
+msgid "Review"
+msgstr "Überprüfen"
+
+msgid "Evaluate"
+msgstr "Bewerten"
+
+msgid "Application"
+msgstr "Bewerbung"
+
+msgid "Training"
+msgstr "Schulung"
+
+msgid "Benefits"
+msgstr "Zusatzleistungen"
+
+msgid "Employee Status"
+msgstr "Mitarbeiterstatus"
+
+msgid "Reporting To"
+msgstr "Berichtet an"
+
+msgid "Contract Type"
+msgstr "Vertragsart"
+
+msgid "Contract Period"
+msgstr "Vertragslaufzeit"
+
+msgid "Probation Period"
+msgstr "Probezeit"
+
+msgid "Work Schedule"
+msgstr "Arbeitszeit"
+
+msgid "Sick Leave"
+msgstr "Krankheitsurlaub"
+
+msgid "Vacation Leave"
+msgstr "Erholungsurlaub"
+
+msgid "Compensation"
+msgstr "Vergütung"
+
+msgid "Tax Information"
+msgstr "Steuerinformationen"
+
+msgid "Certifications"
+msgstr "Zertifizierungen"
+
+msgid "Skills"
+msgstr "Fähigkeiten"
+
+msgid "Qualifications"
+msgstr "Qualifikationen"
+
+msgid "Training History"
+msgstr "Schulungshistorie"
+
+msgid "Performance Review"
+msgstr "Leistungsbeurteilung"
+
+msgid "Goals"
+msgstr "Ziele"
+
+msgid "Achievements"
+msgstr "Erfolge"
+
+msgid "Grievances"
+msgstr "Beschwerden"
+
+msgid "Exit Interview"
+msgstr "Austrittsgespräch"
+
+msgid "Clearance"
+msgstr "Freigabe"
 
 #~ msgid "Batch Description is not added"
 #~ msgstr "Chargen Beschreibung nicht hinzugefügt"

@@ -33,15 +33,15 @@
 	class="oh-modal"
 	id="mailServerModal"
 	role="dialog"
-	aria-labelledby="mailServerModal"
-	aria-hidden="true"
+	aria-labelledby="mailServerModalLabel"
+	aria-modal="true"
 >
 	<div class="oh-modal__dialog">
 		<div class="oh-modal__dialog-header">
-			<h2 class="oh-modal__dialog-title" id="editModal1ModalLabel">
+			<h2 class="oh-modal__dialog-title" id="mailServerModalLabel">
 				{% trans "Mail Server" %}
 			</h2>
-			<button class="oh-modal__close" aria-label="Close">
+			<button class="oh-modal__close" aria-label="{% trans 'Close' %}">
 				<ion-icon name="close-outline"></ion-icon>
 			</button>
 		</div>

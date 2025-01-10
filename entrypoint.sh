@@ -71,6 +71,41 @@ python3 manage.py createhorillauser \
     --last_name "Hindriks" \
     --phone "1234567890"
 
+# Konfiguriere E-Mail-Server
+echo "Configuring mail server..."
+python3 manage.py shell << END
+from base.models import DynamicEmailConfiguration
+DynamicEmailConfiguration.objects.all().delete()
+DynamicEmailConfiguration.objects.create(
+    host="$EMAIL_HOST",
+    port=$EMAIL_PORT,
+    username="$EMAIL_HOST_USER",
+    password="$EMAIL_PASSWORD",
+    use_tls=$EMAIL_USE_TLS,
+    from_email="$DEFAULT_FROM_EMAIL",
+    fail_silently=False,
+    is_active=True
+)
+END
+
+# Konfiguriere Organisation
+echo "Configuring organization..."
+python3 manage.py shell << END
+from base.models import CompanyConfiguration
+CompanyConfiguration.objects.all().delete()
+CompanyConfiguration.objects.create(
+    company_name="q23.medien",
+    corporate_address="Kaskelstraße 29",
+    company_phone="+49 30 68231633",
+    company_email="$DEFAULT_FROM_EMAIL",
+    company_website="https://q23.de",
+    company_city="Berlin",
+    company_zip="10317",
+    company_state="Berlin",
+    company_country="Deutschland"
+)
+END
+
 echo "Starting Gunicorn..."
 exec gunicorn \
     --bind 0.0.0.0:8000 \
